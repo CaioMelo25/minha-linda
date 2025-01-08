@@ -3,59 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Exemplo</title>
+    <title>Página Inicial</title>
     <style>
         html, body {
-            height: 100%; /* Garante que o body ocupe 100% da altura */
-            margin: 0; /* Remove a margem padrão */
-            padding: 0; /* Remove o padding padrão */
-        }
-        body {
-            font-family: Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif; /* Fonte moderna */
             background: linear-gradient(#ffffff, #dcedc8);
         }
-        header {
-            padding: 10px;
-            text-align: center;
-            color: white;
-        }
-        .buttons {
-            margin-bottom: 20px;
-        }
-        .button {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 0 10px;
-        }
+
         h1 {
-            font-size: 2.5em;
+            font-size: 3em;
+            color: #2f4f4f;
+            margin-bottom: 20px;
             text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
+
         p {
             font-size: 1.2em;
             line-height: 1.6em;
+            color: #555;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+
+        .button:active {
+            background-color: #1e7e34;
+            transform: translateY(1px);
         }
     </style>
 </head>
 <body>
+    <img src="imagens/imagem_inicio.jpg" alt="Foto de Bem-vinda" style="width: 150px; border-radius: 50%; margin-bottom: 20px;">
 
-<header>
-    <div class="buttons">
-        <a href="flor.html" class="button">FLOR</a>
-        <a href="carta.html" class="button">CARTA</a>
-    </div>
-</header>
-
-<h1>Título Grande da Página</h1>
+<h1>Bem-vinda, minha linda!</h1>
 
 <p>
-    Este é um texto corrido que aparece abaixo do título. Você pode escrever aqui o que desejar, 
-    seja uma introdução ao tema da sua página ou qualquer informação relevante que você queira 
-    compartilhar com os visitantes. Sinta-se à vontade para personalizar o conteúdo conforme necessário.
+    Esta é a página inicial do site que fiz com muito carinho para você. Aqui você pode acessar 
+    as páginas especiais que criei. Clique nos botões abaixo para ver uma flor animada ou uma 
+    carta cheia de amor.
 </p>
+
+<div class="buttons">
+    <a href="flor.html" class="button">🌸 Flor</a>
+    <a href="carta.html" class="button">💌 Carta</a>
+</div>
 
 </body>
 </html>
