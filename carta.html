@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta Animada</title>
+    <title>Carta</title>
     <style>
         * {
             margin: 0;
@@ -17,13 +17,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: sans-serif;
-            background-image: radial-gradient(ellipse at top, transparent 0%, #000),
-                      radial-gradient(ellipse at bottom, #000, rgba(145, 233, 255, 0.2)),
-                      repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px),
-                      repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px),
-                      repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px),
-                      linear-gradient(90deg, #00fffa, #f0f0f0);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(#ffffff, #dcedc8);
         }
 
         .wrapper {
@@ -34,6 +29,7 @@
             display: flex;
             justify-content: center;
             z-index: 0;
+            cursor: pointer;
         }
 
         .lid {
@@ -86,47 +82,110 @@
             background-color: white;
             border-radius: 15px;
             z-index: 2;
-            transition: transform 0.5s; /* Adiciona transição ao movimento da carta */
-        }
-
-        .letter p {
-            text-align: center;
-            font-size: 30px;
-            margin-top: 30px;
-            color: #3B4049;
+            transition: transform 0.5s;
         }
 
         .open .lid.one {
-                transform: rotateX(90deg);
-                transition-delay: 0s; /* Remove o atraso ao abrir */
+            transform: rotateX(90deg);
+            transition-delay: 0s;
         }
 
         .open .lid.two {
-                transform: rotateX(180deg);
-                transition-delay: 0.25s; /* Atraso ao abrir a segunda tampa */
+            transform: rotateX(180deg);
+            transition-delay: 0.25s;
         }
 
-        .open .letter {
-          transform: translateY(-50px); /* Move a carta para cima ao abrir */
-          transition-delay: 0.5s; /* Atraso ao mover a carta */
+        /* Folha de papel que aparece ao abrir o envelope */
+        .popup-letter {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 60%;
+            max-width: 500px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.6;
+            transition: transform 0.5s ease;
+        }
+
+        .open-popup {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .popup-letter button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3760C9;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #294a96;
         }
     </style>
 </head>
 <body>
     <div class="wrapper" id="wrapper" onclick="toggleEnvelope()">
-      <div class="lid one"></div>
-      <div class="lid two"></div>
-      <div class="envelope"></div>
-      <div class="letter">
-        <p>Minha linda</p>
-      </div>
+        <div class="lid one"></div>
+        <div class="lid two"></div>
+        <div class="envelope"></div>
+        <div class="letter"></div>
     </div>
 
+    <!-- Pop-up da carta -->
+    <div class="popup-letter" id="popup-letter">
+        <h2>Minha linda 💖</h2>
+        <p>
+            Amor da minha vida, acho que já falei muito que nem nos meus melhores sonhos eu poderia imaginar que Deus preparou uma
+            pessoa tão perfeita pra completar a minha vida, você me faz querer ser melhor todo dia, me faz querer pensar no meu futuro, me faz feliz só de lembrar que eu tenho você.
+             Obrigado por ser a melhor namorada do mundo mais um ano. Você é meu 🍀
+        </p>
+        <button onclick="closePopup()">Fechar</button>
+    </div>
+
+    <button class="back-button" onclick="window.location.href='inicial.html'">Voltar para a Página Inicial</button>
+
     <script>
-      function toggleEnvelope() {
-          const wrapper = document.getElementById('wrapper');
-          wrapper.classList.toggle('open'); // Alterna a classe 'open' para abrir ou fechar a carta
-      }
+        function toggleEnvelope() {
+            const wrapper = document.getElementById('wrapper');
+            const popupLetter = document.getElementById('popup-letter');
+            wrapper.classList.toggle('open');
+
+            // Exibe o pop-up da carta após abrir o envelope
+            setTimeout(() => {
+                popupLetter.classList.add('open-popup');
+            }, 1000);
+        }
+
+        function closePopup() {
+            const popupLetter = document.getElementById('popup-letter');
+            popupLetter.classList.remove('open-popup');
+        }
     </script>
 </body>
 </html>
