@@ -42,13 +42,18 @@ body {
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.3);
     background: linear-gradient(#762c2c,#ff0303);
   }
-  .box-body .img{
+  .box-body .img {
     opacity: 0;
     transform: translateY(0%);
     transition: all 0.5s;
     margin: 0 auto;
     display: block;
-  }
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem se ajuste corretamente ao tamanho */
+    border-radius: 10px; /* Bordas arredondadas opcionais */
+}
+
   .box-body:hover {
     cursor: pointer;
     -webkit-animation: box-body 1s forwards ease-in-out;
@@ -279,4 +284,25 @@ body {
               transform: translateX(-100%) rotate(0deg) skew(10deg, 10deg);
     }
   }
-  
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.title h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.title p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
